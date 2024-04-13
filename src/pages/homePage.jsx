@@ -4,9 +4,9 @@ import "../style/homepage.css";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-    const history = useNavigate();
+    const navigate = useNavigate();
     const handleClick = () => {
-        history.push("/crewmate-creator");
+        navigate('/crewmate-creator');
     }
 
     return (

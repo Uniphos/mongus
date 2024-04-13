@@ -11,7 +11,7 @@ function NavBar() {
             <div className="navbar__menu">
                 <Link to="/" className="navbar__menu-item">Home</Link>
                 <Link to="/crewmate-creator" className="navbar__menu-item">Create Crewmate</Link>
-                <Link to="/veiw" className="navbar__menu-item">View Crewmates</Link>
+                <Link to="/crewmates" className="navbar__menu-item">View Crewmates</Link>
             </div>
         </div>
     );
