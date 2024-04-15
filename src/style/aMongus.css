@@ -1,0 +1,19 @@
+.aMongus-body {
+    position:absolute;
+    display: flex; /* Add this line */
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    top: 100px;
+    z-index: 0;
+}
+
+.delete-button:hover {
+    background-color: red;
+}
+
+.edit-button:hover {
+    background-color: green;
+}

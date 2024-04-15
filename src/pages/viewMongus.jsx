@@ -5,10 +5,11 @@ import Card from "../components/cards";
 const DB_key = import.meta.env.VITE_DB_KEY;
 const DB_url = import.meta.env.VITE_DB_URL;
 import { createClient } from '@supabase/supabase-js';
+const mainLink = createClient(DB_url, DB_key);
 
 const ViewMongus = (props) => {
 
-    const mainLink = createClient(DB_url, DB_key);
+    
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -24,7 +25,9 @@ const ViewMongus = (props) => {
         }
         fetchPost();
 
-        setPosts(props.data);
+        setPosts(props);
+
+        //console.log(posts[0].id);
     }, [props]);
 
 
@@ -39,8 +42,8 @@ const ViewMongus = (props) => {
                     <div className="crewmate-box">
                     {
                         posts && posts.length > 0 ?
-                        posts.map((post,index) => 
-                           <Card id={post.id} name={post.name} speed={post.speed} color={post.color}/>
+                        posts.map((post) => 
+                           <Card key={post.id} id={post.id} name={post.name} speed={post.speed} color={post.color}/>
                         ) : <h2>{'No Challenges Yet 😞'}</h2>
                     }
                     </div>

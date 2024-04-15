@@ -4,13 +4,12 @@ import "../style/createMongus.css";
 const DB_key = import.meta.env.VITE_DB_KEY;
 const DB_url = import.meta.env.VITE_DB_URL;
 import { createClient } from '@supabase/supabase-js';
-import { useNavigate } from "react-router-dom";
+
 
 const CreateMongus = () => {
     const [selectedColor, setSelectedColor] = useState(null);
     const [post, setPost] = useState({name: "", speed: ""});
     const mainLink = createClient(DB_url, DB_key);
-    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -29,7 +28,7 @@ const CreateMongus = () => {
     const saveValue = async (event) => {
         event.preventDefault();
         
-        if (!Number.isInteger(Number(post.speed))) {
+        if (!Number.isInteger(Number(post.speed)) || post.speed === "") {
             alert('Speed must be an Number!');
             return;
         }
@@ -41,7 +40,7 @@ const CreateMongus = () => {
 
         window.location = "/crewmates";
     }
-    const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Black', 'orange', 'white', 'pink']; // Add more colors as needed
+    const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Black', 'Orange', 'White', 'Pink']; // Add more colors as needed
 
     return (
         <div className="create-mongus">
